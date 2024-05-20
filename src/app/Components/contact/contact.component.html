@@ -1,0 +1,35 @@
+<div class="card flex justify-content-center">
+  <p-card header="Contact Form" class="p-mx-auto">
+    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+      <div class="p-field">
+        <label for="name">Nombre:</label>
+        <input id="name" pInputText formControlName="name">
+        <small *ngIf="submitted && formControls['name'].errors" class="p-error">
+          <ng-container *ngIf="formControls['name'].errors['required']">Nombre es requerido.</ng-container>
+        </small>
+      </div>
+      <br>
+      <div class="p-field">
+        <label for="email">Email:</label>
+        <input id="email" pInputText formControlName="email">
+        <small *ngIf="submitted && formControls['email'].errors" class="p-error">
+          <ng-container *ngIf="formControls['email'].errors['required']">Email es requerido.</ng-container>
+          <ng-container *ngIf="formControls['email'].errors['email']">Email es invalido.</ng-container>
+        </small>
+      </div>
+      <br>
+      <div class="p-field">
+        <label for="message">Mensaje:</label>
+        <textarea id="message" pInputTextarea formControlName="message"></textarea>
+        <small *ngIf="submitted && formControls['message'].errors" class="p-error">
+          <ng-container *ngIf="formControls['message'].errors['required']">Mensaje es requerido.</ng-container>
+          <ng-container *ngIf="formControls['message'].errors['minlength']">El mensaje debe contener 10 caracteres</ng-container>
+        </small>
+      </div>
+
+      <button pButton type="submit" label="Submit"></button>
+    </form>
+  </p-card>
+</div>
+
+<p-toast></p-toast>

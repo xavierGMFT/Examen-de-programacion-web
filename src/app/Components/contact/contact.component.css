@@ -1,0 +1,6 @@
+.contact-form {
+  margin: 0 auto;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
